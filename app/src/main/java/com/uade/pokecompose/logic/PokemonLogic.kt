@@ -15,7 +15,7 @@ object PokemonLogic {
 
     fun calcularPorcentajeProgreso(capturados: Int, total: Int): Double {
         if (total == 0) return 0.0
-        return ((capturados / total) * 100).toDouble()
+        return ((capturados.toDouble() / total) * 100).toDouble()
     }
 
     fun calcularRestantes(total: Int, capturados: Int): Int {

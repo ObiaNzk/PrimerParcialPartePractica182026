@@ -1,6 +1,7 @@
 package com.uade.pokecompose.ui
 
 import android.content.Intent
+import android.webkit.MimeTypeMap
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -34,9 +35,8 @@ fun PokemonScreen(
 ) {
     val context = LocalContext.current
     val todosLosPokemons = remember { repository.getPokemons() }
-
-    var busqueda = ""
-    val capturados = mutableListOf<Pokemon>()
+    var busqueda by remember { mutableStateOf("") }
+    val capturados = remember { mutableStateListOf<Pokemon>() }
 
     val porcentajeProgreso = PokemonLogic.calcularPorcentajeProgreso(
         capturados = capturados.size,
